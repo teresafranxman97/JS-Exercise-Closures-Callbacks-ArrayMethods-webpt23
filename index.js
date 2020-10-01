@@ -32,11 +32,11 @@ function processFirstItem(stringList, callback) {
  *
  * 2. Which of the two uses a closure? How can you tell?
  *
- *  Counter1 uses a closure because it returns a function counter, that is within the counterMaker function
+ *  Counter1 uses a closure when it returns a function counter() that then returns the variable 'count' incremented by 1. When this function returns count, it has to reach outside of itself to find "count".
  *
  * 3. In what scenario would the counter1 code be preferable? In what scenario would counter2 be better?
  *
- *
+ *  A:
  *
  */
 
@@ -62,7 +62,7 @@ function counter2() {
 Write a function called `inning` that generates a random number of points that a team scored in an inning. This should be a whole number between 0 and 2. */
 
 function inning() {
-  let score = Math.floor(Math.random() * 3);
+  let score = Math.floor(Math.random() * 3); // This will output a random num between 0 - 2
 
   return score;
 }
@@ -119,8 +119,12 @@ and returns the score at each pont in the game, like so:
 
 Final Score: awayTeam - homeTeam */
 
-function scoreboard(getInningScore, inning, num) {
-  
-  let teamScores = 
-
+function scoreboard(getInningScore, inning, numInns) {
+  let gameScores = []; // create an empty array
+  for (let i = 0; i < numInns; i++) {
+    // create a for loop to loop
+    gameScores.push(`Inning ${final.home} `);
+  }
+  return gameScores;
 }
+console.log(scoreboard(finalScore(inning, 9)));
