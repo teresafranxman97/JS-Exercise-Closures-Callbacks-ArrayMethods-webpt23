@@ -50,6 +50,11 @@ function counterMaker() {
 
 const counter1 = counterMaker();
 
+counter1();
+counter1();
+counter1();
+counter1();
+
 // counter2 code
 let count = 0;
 
@@ -119,6 +124,7 @@ and returns the score at each pont in the game, like so:
 
 Final Score: awayTeam - homeTeam */
 
+/*
 function scoreboard(getInningScore, inning, numInns) {
   let gameScores = []; // create an empty array
   for (let i = 0; i < numInns; i++) {
@@ -128,3 +134,53 @@ function scoreboard(getInningScore, inning, numInns) {
   return gameScores;
 }
 console.log(scoreboard(finalScore(inning, 9)));
+
+
+// 2nd attempt at rewritting my code
+
+function scoreboard(getInningScore, inning, numInns) {
+  let gameScores = {
+    home: 0,
+    away: 0,
+  };
+
+  for (let i = 0; i < numInns; i++) {
+    gameScores.home += inning();
+    gameScores.away += inning();
+    
+  }
+  return gameScores;
+}
+console.log(scoreboard(finalScore,inning, 9));
+
+
+*/
+function getScore() {
+  let inning = 1;
+  return function (score) {
+    let prefix = "st";
+    if (inning == 2) prefix = "nd";
+    if (inning == 3) prefix = "rd";
+    if (inning > 3) prefix = "th";
+    console.log(`${inning++}${prefix} inning: ${score.Away} - ${score.Home}`);
+  };
+}
+
+function scoreboard(getInningScore, inning, numInns) {
+  let score = {
+    Home: 0,
+    Away: 0,
+  };
+  let getScore = getInningScore();
+
+  for (let inn = 0; inn < numInns; inn++) {
+    score.Home += inning();
+    score.Away += inning();
+
+    getScore(score);
+  }
+
+  console.log(`Final Score: ${score.Away} - ${score.Home}`);
+}
+
+scoreboard(getScore, inning, 9);
