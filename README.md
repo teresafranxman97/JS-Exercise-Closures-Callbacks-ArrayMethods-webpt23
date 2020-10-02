@@ -42,6 +42,9 @@ Find the file `index.js` and complete the tasks until your tests are passing.
 Edit the `ReadMe` file with your answers.
 
 1. In your own words, define closure (1-2 sentences).
+
+A closure happens when a function "remembers" variables that are outside of it, even if you pass that function somewhere else
+
 2. Study the following code, then answer the questions below.
 
 ```js
@@ -62,8 +65,16 @@ dansRoll();
 ```
 
 a. Where is closure used in this code? How can you tell?
+
+A: The closure happens inside of the return function because "\${name} has to reach outwards of the return function in order to reference "name"
+
 b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change?
+
+COMPARE: - They both roll a good amount of even number of rolls when called -
+
 c. What is the lexical scope of `newRoll`?
+
+A: It is function scoped because it resides inside of the personalDice function and you would not be able to reach inside the function to call upon 'newRoll'
 
 ### Task 3 - Stretch Goals
 
